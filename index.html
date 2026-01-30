@@ -3,10 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>FRAG TEKNOLOJİ | Kurumsal Sistemler • POS • ESL • Servis</title>
-  <meta name="description" content="FRAG Teknoloji: perakende, otel ve restoran sektörlerinde donanım tedarik, kurulum, servis ve bakım. POS, ESL elektronik raf etiketleri, yazıcılar, OEM otomasyon ekipmanları ve uçtan uca destek." />
+  <title>FRAG TEKNOLOJİ | POS • ESL • Donanım • Servis</title>
+
+  <meta name="description" content="FRAG Teknoloji: perakende, otel ve restoran sektörlerinde uçtan uca teknoloji çözümleri. ESL elektronik raf etiketleri, POS sistemleri, yazıcı bakım-onarım, OEM otomasyon ekipmanları ve cihaz servis hizmetleri." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://fragteknoloji.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="FRAG TEKNOLOJİ | POS • ESL • Donanım • Servis" />
+  <meta property="og:description" content="Perakende, otel ve restoran operasyonları için tedarik, kurulum, servis ve uzun dönem destek." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fragteknoloji.com/" />
 
   <style>
     :root{
@@ -60,7 +67,7 @@
       box-shadow: var(--shadow);
       flex:0 0 40px;
     }
-    .brand-title{font-weight:900; letter-spacing:.5px; font-size:20px; line-height:1.05}
+    .brand-title{font-weight:900; letter-spacing:.5px; font-size:22px; line-height:1.05}
     .brand-sub{color:var(--muted); font-size:12px; margin-top:2px}
 
     .menu{display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:flex-end}
@@ -71,6 +78,7 @@
       transition: background .2s ease, color .2s ease;
     }
     .menu a.link:hover{background: rgba(255,255,255,.06); color: var(--text);}
+
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
       padding:11px 14px;
@@ -80,6 +88,7 @@
       color:var(--text);
       transition: transform .15s ease, background .2s ease, border-color .2s ease;
       white-space:nowrap;
+      cursor:pointer;
     }
     .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.18)}
     .btn.primary{
@@ -156,7 +165,7 @@
     .section h2{margin:0 0 10px; font-size:22px; letter-spacing:-.2px}
     .section p{margin:0; color:var(--muted)}
 
-    /* Services list (items, not tabs) */
+    /* Services list */
     .svc-list{
       margin-top:14px;
       display:grid;
@@ -196,6 +205,20 @@
       display:grid; place-items:center;
       color: var(--accent2); font-weight:900;
       flex:0 0 20px; margin-top:2px;
+    }
+
+    /* Gallery */
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+      gap:12px;
+      margin-top:18px;
+    }
+    .gallery img{
+      width:100%;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.10);
+      display:block;
     }
 
     /* Contact */
@@ -291,8 +314,15 @@
           <div class="hero-actions">
             <a class="btn primary" href="#hizmetler">Hizmetleri incele</a>
             <a class="btn" href="#iletisim">📩 Teklif iste</a>
-            <a class="btn" href="https://wa.me/905433650787?text=Merhaba%2C%20FRAG%20TEKNOLOJ%C4%B0%20i%C3%A7in%20teklif%20almak%20istiyorum." target="_blank" rel="noopener">💬 WhatsApp</a>
+            <a class="btn" href="https://wa.me/905433650787?text=Merhaba%2C%20FRAG%20TEKNOLOJ%C4%B0%20i%C3%A7in%20teklif%20almak%20istiyorum."
+               target="_blank" rel="noopener">💬 WhatsApp</a>
           </div>
+
+          <!-- HERO ESL IMAGE -->
+          <img
+            src="images/esl2.jpg"
+            alt="ESL elektronik raf etiketleri - perakende çözümleri"
+            style="width:100%;margin-top:18px;border-radius:16px;border:1px solid rgba(255,255,255,.12);display:block;">
         </div>
 
         <aside class="card hero-side" aria-label="Özet">
@@ -343,7 +373,7 @@
       </div>
     </section>
 
-    <!-- SERVICES (EACH AS SEPARATE ITEM) -->
+    <!-- SERVICES -->
     <section id="hizmetler" class="section" aria-label="Hizmetler">
       <div class="card" style="padding:18px;">
         <h2>Hizmetler</h2>
@@ -353,7 +383,7 @@
 
           <!-- ESL -->
           <article class="svc-item">
-            <div class="svc-media" style="background-image:url('https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1400&q=70');"></div>
+            <div class="svc-media" style="background-image:url('images/esl4.jpg');"></div>
             <div class="svc-body">
               <div class="svc-top">
                 <div>
@@ -362,22 +392,33 @@
                 </div>
                 <span class="badge">Öne çıkan</span>
               </div>
+
               <ul class="bullets">
                 <li><span class="check">✓</span> Keşif, planlama, etiket seçimi ve raf yerleşimi</li>
                 <li><span class="check">✓</span> Gateway kurulumu, etiket eşleştirme, test ve devreye alma</li>
                 <li><span class="check">✓</span> Cloud server üzerinden kontrol, uzaktan yönetim ve destek</li>
                 <li><span class="check">✓</span> Satış sonrası destek: eğitim, bakım planı, uzun dönem servis</li>
               </ul>
+
+              <!-- ESL GALLERY -->
+              <div class="gallery">
+                <img src="images/esl5.png" alt="ESL elektronik raf etiketi yakın çekim">
+                <img src="images/esl6.png" alt="Market raflarında ESL uygulaması">
+                <img src="images/esl7.jpg" alt="Perakende mağazada ESL sistemi">
+                <img src="images/esl8.png" alt="ESL fiyat etiketi ekranı">
+              </div>
+
               <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;">
                 <a class="btn primary" href="#iletisim">ESL için teklif al</a>
-                <a class="btn" href="https://wa.me/905433650787?text=Merhaba%2C%20ESL%20elektronik%20raf%20etiketi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">WhatsApp</a>
+                <a class="btn" href="https://wa.me/905433650787?text=Merhaba%2C%20ESL%20elektronik%20raf%20etiketi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
+                   target="_blank" rel="noopener">WhatsApp</a>
               </div>
             </div>
           </article>
 
           <!-- POS -->
           <article class="svc-item">
-            <div class="svc-media" style="background-image:url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1400&q=70');"></div>
+            <div class="svc-media" style="background-image:url('images/esl7.jpg');"></div>
             <div class="svc-body">
               <h3>Otel / Restaurant POS Sistemleri (Kurulum • Entegrasyon • Servis)</h3>
               <p>POS altyapınızı kurar, cihaz ve çevre birimleriyle eksiksiz devreye alır, süreklilik için destek veririz.</p>
@@ -392,7 +433,7 @@
 
           <!-- Printers -->
           <article class="svc-item">
-            <div class="svc-media" style="background-image:url('https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?auto=format&fit=crop&w=1400&q=70');"></div>
+            <div class="svc-media" style="background-image:url('images/esl5.png');"></div>
             <div class="svc-body">
               <h3>Yazıcı Bakım & Onarım (Epson/TM Serileri)</h3>
               <p>Epson 220B, T88 serisi, TM-U295 ve benzeri yazıcılar için bakım, onarım ve tedarik.</p>
@@ -407,7 +448,7 @@
 
           <!-- OEM -->
           <article class="svc-item">
-            <div class="svc-media" style="background-image:url('https://images.unsplash.com/photo-1581092919535-7146c5f9f7d3?auto=format&fit=crop&w=1400&q=70');"></div>
+            <div class="svc-media" style="background-image:url('images/esl6.png');"></div>
             <div class="svc-body">
               <h3>OEM Otomasyon Ekipmanları (Temin • Tamir • Test)</h3>
               <p>Otomasyon altyapılarında kullanılan kart ve bileşenler için tedarik, tamir ve fonksiyon test hizmetleri.</p>
@@ -422,7 +463,7 @@
 
           <!-- Devices -->
           <article class="svc-item">
-            <div class="svc-media" style="background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=70');"></div>
+            <div class="svc-media" style="background-image:url('images/esl8.png');"></div>
             <div class="svc-body">
               <h3>Telefon / Tablet / PC (Tedarik • Onarım • Servis)</h3>
               <p>Kurumsal ve bireysel cihazlar için tedarik, bakım-onarım ve servis süreçleri.</p>
