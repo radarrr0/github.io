@@ -191,6 +191,15 @@
       position:absolute; inset:0;
       background: linear-gradient(90deg, rgba(5,8,22,.10), rgba(5,8,22,.78));
     }
+
+    /* ESL olmayan hizmetler için nötr arka plan */
+    .svc-media.placeholder{
+      background:
+        radial-gradient(900px 300px at 20% 20%, rgba(47,123,255,.18), transparent 60%),
+        radial-gradient(900px 260px at 80% 0%, rgba(0,211,167,.10), transparent 60%),
+        rgba(255,255,255,.04);
+    }
+
     .svc-body{padding:18px}
     .svc-top{display:flex; align-items:flex-start; justify-content:space-between; gap:12px}
     .svc-body h3{margin:0 0 6px; font-size:18px}
@@ -317,12 +326,7 @@
             <a class="btn" href="https://wa.me/905433650787?text=Merhaba%2C%20FRAG%20TEKNOLOJ%C4%B0%20i%C3%A7in%20teklif%20almak%20istiyorum."
                target="_blank" rel="noopener">💬 WhatsApp</a>
           </div>
-
-          <!-- HERO ESL IMAGE -->
-          <img
-            src="images/esl2.jpg"
-            alt="ESL elektronik raf etiketleri - perakende çözümleri"
-            style="width:100%;margin-top:18px;border-radius:16px;border:1px solid rgba(255,255,255,.12);display:block;">
+          <!-- HERO'DA ESL GÖRSELİ KALDIRILDI -->
         </div>
 
         <aside class="card hero-side" aria-label="Özet">
@@ -382,7 +386,7 @@
         <div class="svc-list">
 
           <!-- ESL -->
-          <article class="svc-item">
+          <article class="svc-item" id="svc-esl">
             <div class="svc-media" style="background-image:url('images/esl4.jpg');"></div>
             <div class="svc-body">
               <div class="svc-top">
@@ -400,25 +404,26 @@
                 <li><span class="check">✓</span> Satış sonrası destek: eğitim, bakım planı, uzun dönem servis</li>
               </ul>
 
-              <!-- ESL GALLERY -->
-              <div class="gallery">
+              <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;">
+                <button class="btn" type="button" id="eslToggleBtn" aria-expanded="false" aria-controls="eslGallery">ESL görsellerini göster</button>
+                <a class="btn primary" href="#iletisim">ESL için teklif al</a>
+                <a class="btn" href="https://wa.me/905433650787?text=Merhaba%2C%20ESL%20elektronik%20raf%20etiketi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
+                   target="_blank" rel="noopener">WhatsApp</a>
+              </div>
+
+              <!-- ESL GALLERY (sadece butonla açılır) -->
+              <div class="gallery" id="eslGallery" hidden>
                 <img src="images/esl5.png" alt="ESL elektronik raf etiketi yakın çekim">
                 <img src="images/esl6.png" alt="Market raflarında ESL uygulaması">
                 <img src="images/esl7.jpg" alt="Perakende mağazada ESL sistemi">
                 <img src="images/esl8.png" alt="ESL fiyat etiketi ekranı">
-              </div>
-
-              <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;">
-                <a class="btn primary" href="#iletisim">ESL için teklif al</a>
-                <a class="btn" href="https://wa.me/905433650787?text=Merhaba%2C%20ESL%20elektronik%20raf%20etiketi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
-                   target="_blank" rel="noopener">WhatsApp</a>
               </div>
             </div>
           </article>
 
           <!-- POS -->
           <article class="svc-item">
-            <div class="svc-media" style="background-image:url('images/esl7.jpg');"></div>
+            <div class="svc-media placeholder"></div>
             <div class="svc-body">
               <h3>Otel / Restaurant POS Sistemleri (Kurulum • Entegrasyon • Servis)</h3>
               <p>POS altyapınızı kurar, cihaz ve çevre birimleriyle eksiksiz devreye alır, süreklilik için destek veririz.</p>
@@ -433,7 +438,7 @@
 
           <!-- Printers -->
           <article class="svc-item">
-            <div class="svc-media" style="background-image:url('images/esl5.png');"></div>
+            <div class="svc-media placeholder"></div>
             <div class="svc-body">
               <h3>Yazıcı Bakım & Onarım (Epson/TM Serileri)</h3>
               <p>Epson 220B, T88 serisi, TM-U295 ve benzeri yazıcılar için bakım, onarım ve tedarik.</p>
@@ -448,7 +453,7 @@
 
           <!-- OEM -->
           <article class="svc-item">
-            <div class="svc-media" style="background-image:url('images/esl6.png');"></div>
+            <div class="svc-media placeholder"></div>
             <div class="svc-body">
               <h3>OEM Otomasyon Ekipmanları (Temin • Tamir • Test)</h3>
               <p>Otomasyon altyapılarında kullanılan kart ve bileşenler için tedarik, tamir ve fonksiyon test hizmetleri.</p>
@@ -463,7 +468,7 @@
 
           <!-- Devices -->
           <article class="svc-item">
-            <div class="svc-media" style="background-image:url('images/esl8.png');"></div>
+            <div class="svc-media placeholder"></div>
             <div class="svc-body">
               <h3>Telefon / Tablet / PC (Tedarik • Onarım • Servis)</h3>
               <p>Kurumsal ve bireysel cihazlar için tedarik, bakım-onarım ve servis süreçleri.</p>
@@ -477,6 +482,18 @@
           </article>
 
         </div>
+      </div>
+    </section>
+
+    <!-- ANA SAYFA ALTINDA TEK ESL GÖRSELİ -->
+    <section class="section" aria-label="ESL vitrin">
+      <div class="card" style="padding:18px;">
+        <h2>ESL Çözümleri</h2>
+        <p>Perakende raflarında hızlı fiyat güncelleme ve merkezi yönetim için ESL sistemleri.</p>
+        <img
+          src="images/esl2.jpg"
+          alt="ESL elektronik raf etiketi çözümleri"
+          style="width:100%;margin-top:14px;border-radius:16px;border:1px solid rgba(255,255,255,.12);display:block;">
       </div>
     </section>
 
@@ -554,6 +571,26 @@
         el.scrollIntoView({behavior:"smooth", block:"start"});
       });
     });
+
+    // ESL galeri: sadece ESL butonuna basınca aç/kapat
+    (function(){
+      const btn = document.getElementById('eslToggleBtn');
+      const gal = document.getElementById('eslGallery');
+      if(!btn || !gal) return;
+
+      btn.addEventListener('click', () => {
+        const isHidden = gal.hasAttribute('hidden');
+        if(isHidden){
+          gal.removeAttribute('hidden');
+          btn.textContent = 'ESL görsellerini gizle';
+          btn.setAttribute('aria-expanded', 'true');
+        }else{
+          gal.setAttribute('hidden', '');
+          btn.textContent = 'ESL görsellerini göster';
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    })();
   </script>
 </body>
 </html>
