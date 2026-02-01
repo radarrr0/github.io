@@ -2,3 +2,8 @@ User-agent: *
 Allow: /
 
 Sitemap: https://fragteknoloji.com/sitemap.xml
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.fragteknoloji.com/sitemap.xml
