@@ -6,176 +6,315 @@
 
 <title>FRAG Teknoloji | POS • ESL • Donanım • Servis</title>
 <meta name="description" content="FRAG Teknoloji; perakende, otel ve restoran sektörleri için POS, ESL, donanım tedarik, kurulum ve teknik servis çözümleri sunar.">
+<meta name="robots" content="index,follow">
 <link rel="canonical" href="https://fragteknoloji.com">
 
 <style>
 :root{
-  --bg:#050816;
-  --bg2:#0a0f2a;
+  --bg0:#050816;
+  --bg1:#0a0f2a;
   --card:rgba(255,255,255,.06);
   --border:rgba(255,255,255,.12);
-  --text:#fff;
-  --muted:rgba(255,255,255,.7);
+  --text:rgba(255,255,255,.92);
+  --muted:rgba(255,255,255,.72);
   --accent:#2f7bff;
   --accent2:#00d3a7;
-  --radius:18px;
-  --max:1280px;
+  --shadow:0 16px 42px rgba(0,0,0,.45);
+  --r:18px;
+  --max:1400px; /* webde geniş görünmesi için */
 }
 
 *{box-sizing:border-box}
+html,body{height:100%}
 body{
   margin:0;
   font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
   color:var(--text);
   background:
-    radial-gradient(1200px 600px at 10% -10%, rgba(47,123,255,.25), transparent),
-    radial-gradient(900px 500px at 90% 0%, rgba(0,211,167,.2), transparent),
-    linear-gradient(180deg,var(--bg),var(--bg2));
+    radial-gradient(1200px 650px at 12% -10%, rgba(47,123,255,.25), transparent 60%),
+    radial-gradient(900px 620px at 92% -8%, rgba(0,211,167,.18), transparent 60%),
+    linear-gradient(180deg, var(--bg0) 0%, var(--bg1) 52%, #050716 100%);
+  line-height:1.65;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:28px 24px 64px;
 }
 
-/* ================= NAV ================= */
+/* NAV */
 header{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(5,8,22,.85);
+  position:sticky; top:0; z-index:100;
+  background:rgba(5,8,22,.82);
   backdrop-filter:blur(12px);
   border-bottom:1px solid var(--border);
 }
-.nav{
+.navbar{
   max-width:var(--max);
-  margin:auto;
-  padding:14px 24px;
+  margin:0 auto;
+  padding:12px 24px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-}
-.brand{
-  display:flex;
-  align-items:center;
   gap:16px;
 }
+.brand{
+  display:flex; align-items:center; gap:14px;
+  min-width: 260px;
+}
 .brand img{
-  width:72px;
-  height:72px;
-  object-fit:contain;
+  width:72px; height:72px; object-fit:contain;
 }
-.brand h1{
-  font-size:28px;
-  margin:0;
-  line-height:1.1;
+.brand .name{
+  font-weight:900;
+  font-size:26px;
+  line-height:1.05;
+  letter-spacing:.2px;
 }
-.brand span{
-  font-size:13px;
+.brand .sub{
   color:var(--muted);
+  font-size:12px;
+  margin-top:3px;
 }
-
 .menu{
-  display:flex;
-  gap:14px;
-  align-items:center;
+  display:flex; align-items:center; gap:10px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
 }
-.menu a{
+.link{
+  padding:10px 12px;
+  border-radius:12px;
   color:var(--muted);
-  text-decoration:none;
-  padding:8px 10px;
+  transition: background .2s ease, color .2s ease;
 }
-.menu a:hover{color:#fff}
-
+.link:hover{background:rgba(255,255,255,.06); color:var(--text)}
+.link.active{
+  color:var(--text);
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.14);
+}
 .btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
   padding:10px 14px;
   border-radius:14px;
   border:1px solid var(--border);
   background:rgba(255,255,255,.05);
-  color:#fff;
-  text-decoration:none;
+  color:var(--text);
+  cursor:pointer;
+  transition: transform .15s ease, background .2s ease, border-color .2s ease;
+  white-space:nowrap;
 }
+.btn:hover{transform: translateY(-1px); background:rgba(255,255,255,.09); border-color:rgba(255,255,255,.18)}
 .btn.primary{
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
   border:none;
+  background:linear-gradient(135deg, rgba(47,123,255,.95), rgba(0,211,167,.88));
   color:#041021;
-  font-weight:700;
+  font-weight:900;
 }
 
-/* ================= LAYOUT ================= */
-.container{
-  max-width:var(--max);
-  margin:auto;
-  padding:40px 24px;
-}
-section{margin-bottom:60px}
+/* CARD / LAYOUT */
 .card{
   background:var(--card);
   border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:28px;
+  border-radius:var(--r);
+  box-shadow:var(--shadow);
 }
+.page{display:none}
+.page.active{display:block}
 
-/* ================= HERO ================= */
-.hero{
+.grid{
   display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:24px;
+  gap:16px;
 }
-.hero h2{
-  font-size:48px;
-  margin:0 0 14px;
+.two{
+  grid-template-columns: 1.1fr .9fr;
+  align-items:stretch;
 }
-.hero p{color:var(--muted);font-size:18px}
-
-.hero img{
-  width:100%;
-  border-radius:16px;
-  margin-top:18px;
-}
-
-/* ================= SERVICES ================= */
-.services{
-  display:grid;
-  gap:22px;
-}
-.service{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
-}
-.service img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  border-radius:16px;
-}
-.service h3{margin-top:0}
-
-/* ================= CONTACT ================= */
-.contact{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
-}
-input,textarea{
-  width:100%;
-  padding:12px;
-  margin-bottom:12px;
-  border-radius:12px;
-  border:1px solid var(--border);
-  background:#0b102b;
-  color:#fff;
-}
-
-/* ================= FOOTER ================= */
-footer{
-  text-align:center;
-  color:var(--muted);
-  padding:40px 20px;
-  border-top:1px solid var(--border);
-}
-
-/* ================= RESPONSIVE ================= */
-@media(max-width:900px){
-  .hero,.service,.contact{grid-template-columns:1fr}
-  .hero h2{font-size:34px}
+@media(max-width:980px){
+  .two{grid-template-columns:1fr}
   .brand img{width:56px;height:56px}
+  .brand .name{font-size:22px}
+}
+
+/* HERO */
+.hero{
+  padding:26px;
+}
+.kicker{
+  display:inline-flex; align-items:center; gap:10px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.04);
+  color:var(--muted);
+  padding:8px 12px;
+  border-radius:999px;
+  font-size:13px;
+}
+.dot{
+  width:9px;height:9px;border-radius:999px;background:var(--accent2);
+  box-shadow:0 0 0 4px rgba(0,211,167,.12);
+}
+.h1{
+  margin:14px 0 10px;
+  font-size: clamp(32px, 4.1vw, 54px);
+  line-height:1.08;
+  letter-spacing:-.6px;
+}
+.lead{
+  margin:0 0 14px;
+  color:var(--muted);
+  font-size: clamp(15px, 1.35vw, 18px);
+}
+.actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+.hero-img{
+  margin-top:16px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.12);
+  overflow:hidden;
+}
+
+/* INFO PANELS */
+.panel{padding:18px}
+.panel h3{margin:0 0 6px}
+.panel p{margin:0;color:var(--muted);font-size:14px}
+.badge{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:7px 10px;
+  border-radius:999px;
+  border:1px solid rgba(0,211,167,.25);
+  background:rgba(0,211,167,.10);
+  color:rgba(255,255,255,.88);
+  font-size:12px;
+}
+
+/* SECTION TITLE */
+.section-title{
+  margin:22px 0 10px;
+  font-size:22px;
+  letter-spacing:-.2px;
+}
+.muted{color:var(--muted)}
+
+/* SERVICES */
+.svc-grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap:14px;
+}
+@media(max-width:980px){
+  .svc-grid{grid-template-columns:1fr}
+}
+.svc-card{
+  padding:16px;
+  display:grid;
+  grid-template-columns: 150px 1fr;
+  gap:14px;
+  align-items:stretch;
+  cursor:pointer;
+  transition: transform .15s ease, background .2s ease, border-color .2s ease;
+}
+.svc-card:hover{transform: translateY(-2px); background:rgba(255,255,255,.07); border-color:rgba(255,255,255,.18)}
+.svc-thumb{
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.12);
+  overflow:hidden;
+  background:#0b102b;
+}
+.svc-thumb img{width:100%; height:100%; object-fit:cover}
+.svc-card h3{margin:0 0 6px; font-size:18px}
+.svc-card p{margin:0; color:var(--muted); font-size:14px}
+.tagrow{margin-top:10px; display:flex; flex-wrap:wrap; gap:8px}
+.tag{
+  font-size:12px;
+  color:rgba(255,255,255,.82);
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.05);
+  padding:6px 10px;
+  border-radius:999px;
+}
+
+/* DETAIL PAGE */
+.detail-hero{
+  padding:0;
+  overflow:hidden;
+}
+.detail-hero .cover{
+  height:280px;
+  background-size:cover;
+  background-position:center;
+  position:relative;
+}
+.detail-hero .cover::after{
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(5,8,22,.15), rgba(5,8,22,.85));
+}
+.detail-hero .content{
+  padding:18px 22px 22px;
+  position:relative;
+  margin-top:-110px;
+}
+.detail-hero h2{
+  margin:0 0 8px;
+  font-size:30px;
+  letter-spacing:-.3px;
+}
+.detail-hero p{margin:0; color:var(--muted)}
+.detail-cols{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:14px;
+  margin-top:14px;
+}
+@media(max-width:980px){
+  .detail-cols{grid-template-columns:1fr}
+}
+.box{
+  padding:16px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.04);
+}
+.box h3{margin:0 0 8px}
+.ul{margin:0; padding-left:18px; color:var(--muted); font-size:14px}
+.ul li{margin:7px 0}
+.cta-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+
+/* CONTACT */
+.contact-grid{
+  display:grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap:14px;
+}
+@media(max-width:980px){ .contact-grid{grid-template-columns:1fr} }
+.field{display:grid; gap:8px; margin-bottom:12px}
+input, textarea{
+  width:100%;
+  padding:12px 12px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(10,14,30,.62);
+  color:var(--text);
+  outline:none;
+}
+input:focus, textarea:focus{
+  border-color: rgba(47,123,255,.45);
+  box-shadow: 0 0 0 4px rgba(47,123,255,.12);
+}
+textarea{min-height:140px; resize:vertical}
+
+/* FOOTER */
+footer{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:22px 24px 42px;
+  color:rgba(255,255,255,.55);
+  border-top:1px solid rgba(255,255,255,.10);
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
 }
 </style>
 </head>
@@ -183,104 +322,686 @@ footer{
 <body>
 
 <header>
-  <div class="nav">
-    <div class="brand">
+  <div class="navbar">
+    <a class="brand" href="#anasayfa" data-nav="anasayfa" aria-label="Ana sayfa">
       <img src="images/logo.png" alt="FRAG Teknoloji Logo">
       <div>
-        <h1>FRAG TEKNOLOJİ</h1>
-        <span>POS • ESL • Donanım • Servis</span>
+        <div class="name">FRAG TEKNOLOJİ</div>
+        <div class="sub">Perakende • Otel • Restaurant | POS • ESL • Servis</div>
       </div>
-    </div>
+    </a>
 
-    <nav class="menu">
-      <a href="#anasayfa">Ana Sayfa</a>
-      <a href="#hakkimizda">Hakkımızda</a>
-      <a href="#hizmetler">Hizmetler</a>
-      <a href="#iletisim">İletişim</a>
-      <a class="btn primary" href="#iletisim">Teklif Al</a>
+    <nav class="menu" aria-label="Menü">
+      <a class="link" href="#anasayfa" data-nav="anasayfa">Ana Sayfa</a>
+      <a class="link" href="#hakkimizda" data-nav="hakkimizda">Hakkımızda</a>
+      <a class="link" href="#hizmetler" data-nav="hizmetler">Hizmetler</a>
+      <a class="link" href="#iletisim" data-nav="iletisim">İletişim</a>
+      <a class="btn" href="mailto:support@fragteknoloji.com?subject=Teklif%20Talebi%20-%20FRAG%20TEKNOLOJ%C4%B0">E-posta</a>
+      <a class="btn primary" href="#iletisim" data-nav="iletisim">Teklif Al</a>
     </nav>
   </div>
 </header>
 
 <main class="container">
 
-<section id="anasayfa" class="hero">
-  <div class="card">
-    <h2>Perakende, otel ve restoran operasyonlarınız için uçtan uca çözüm</h2>
-    <p>
-      FRAG Teknoloji; işletmelerin POS, ESL, donanım ve teknik servis ihtiyaçlarını
-      tek noktadan planlar, kurar ve uzun dönem destek sağlar.
-    </p>
-    <img src="images/esl2.jpg" alt="ESL Elektronik Raf Etiketleri">
-  </div>
+  <!-- ===================== ANA SAYFA ===================== -->
+  <section id="page-anasayfa" class="page active" aria-label="Ana sayfa">
+    <div class="grid two">
+      <div class="card hero">
+        <div class="kicker"><span class="dot" aria-hidden="true"></span> Kurumsal çözümler • Kurulum • Servis • Uzun dönem destek</div>
+        <div class="h1">Perakende, otel ve restoran operasyonlarınız için uçtan uca çözüm</div>
+        <p class="lead">
+          FRAG TEKNOLOJİ; işinizin sahada durmaması için donanım ve sistem süreçlerini tek noktadan yönetir:
+          <b>tedarik</b>, <b>kurulum</b>, <b>entegrasyon</b>, <b>servis</b> ve <b>uzun dönem bakım</b>.
+          İhtiyaçlarınızı analiz eder, ölçeklenebilir ve sürdürülebilir çözümler geliştirir.
+        </p>
 
-  <div class="card">
-    <h3>ESL Elektronik Raf Etiketleri</h3>
-    <p>Kurulum, cloud yönetim ve satış sonrası destek.</p>
-    <a class="btn primary" href="#hizmetler">ESL Detayları</a>
-  </div>
-</section>
+        <div class="actions">
+          <a class="btn primary" href="#hizmetler" data-nav="hizmetler">Hizmetleri incele</a>
+          <a class="btn" href="#iletisim" data-nav="iletisim">📩 Teklif iste</a>
+          <a class="btn" href="https://wa.me/905433650787?text=Merhaba%2C%20FRAG%20TEKNOLOJ%C4%B0%20i%C3%A7in%20teklif%20almak%20istiyorum."
+             target="_blank" rel="noopener">💬 WhatsApp</a>
+        </div>
 
-<section id="hizmetler">
-  <h2>Hizmetler</h2>
-
-  <div class="services">
-
-    <div class="service card">
-      <img src="images/mobile1.jpg">
-      <div>
-        <h3>Telefon / Tablet / PC Servisi</h3>
-        <p>Kurumsal ve bireysel cihazlar için bakım, onarım ve tedarik.</p>
+        <!-- Ana sayfada ESL tek görsel -->
+        <div class="hero-img">
+          <img src="images/esl2.jpg" alt="ESL Elektronik Raf Etiketleri - Perakende çözümü">
+        </div>
       </div>
+
+      <aside class="grid" aria-label="Özet">
+        <div class="card panel">
+          <span class="badge">🏷️ ESL Öne Çıkan</span>
+          <h3 style="margin:10px 0 6px;">Elektronik Raf Etiketleri</h3>
+          <p>Keşif, kurulum, cloud yönetim, satış sonrası destek ve uzun dönem servis ile mağazalarda hızlı fiyat güncelleme.</p>
+          <div class="cta-row">
+            <a class="btn primary" href="#svc-esl" data-nav="svc-esl">ESL Detayları</a>
+            <a class="btn" href="#iletisim" data-nav="iletisim">Teklif Al</a>
+          </div>
+        </div>
+
+        <div class="card panel">
+          <h3>Kurulum + Servis</h3>
+          <p>Yerinde/uzaktan destek, periyodik bakım, arıza tespiti ve hızlı müdahale.</p>
+        </div>
+
+        <div class="card panel">
+          <h3>Tek Noktadan Tedarik</h3>
+          <p>Dokunmatik PC, POS ekipmanları, yazıcılar, çevre birimleri ve sarf/yedek parça yönetimi.</p>
+        </div>
+      </aside>
     </div>
 
-    <div class="service card">
-      <img src="images/pos1.jpg">
-      <div>
-        <h3>Otel & Restaurant POS Sistemleri</h3>
-        <p>Kurulum, entegrasyon ve teknik destek.</p>
+    <h2 class="section-title">Kısa Özet</h2>
+    <div class="grid" style="grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px;">
+      <div class="card panel">
+        <h3>Operasyon Sürekliliği</h3>
+        <p>İşletmenizin kritik noktalarında kesinti riskini azaltan planlı bakım ve hızlı servis.</p>
+      </div>
+      <div class="card panel">
+        <h3>Kurumsal Yaklaşım</h3>
+        <p>Keşiften devreye almaya; süreç, dokümantasyon ve iletişimde şeffaf yönetim.</p>
+      </div>
+      <div class="card panel">
+        <h3>Ölçeklenebilir Çözüm</h3>
+        <p>Tek mağazadan zincire kadar büyüyen ihtiyaçlar için modüler ürün ve destek modeli.</p>
       </div>
     </div>
+    <style>
+      @media(max-width:980px){
+        #page-anasayfa .grid[style*="repeat(3"]{grid-template-columns:1fr !important}
+      }
+    </style>
+  </section>
 
-    <div class="service card">
-      <img src="images/printer1.jpg">
-      <div>
-        <h3>Yazıcı Bakım & Onarım</h3>
-        <p>Epson / TM serileri ve endüstriyel yazıcılar.</p>
+  <!-- ===================== HAKKIMIZDA ===================== -->
+  <section id="page-hakkimizda" class="page" aria-label="Hakkımızda">
+    <div class="card" style="padding:22px;">
+      <h2 class="section-title" style="margin-top:0;">Hakkımızda</h2>
+      <p class="muted" style="font-size:15px;">
+        FRAG TEKNOLOJİ, 2022 yılında; saha operasyonlarının aksamasını önlemek ve müşterilerin ihtiyaçlarına
+        hızlı yanıt verebilmek amacıyla kurulmuştur. Bugün perakende, otel ve restoran işletmelerinde kullanılan
+        POS/ESL sistemleri ve kurumsal donanım tarafında <b>tedarik</b>, <b>kurulum</b>, <b>entegrasyon</b> ve
+        <b>servis</b> hizmetlerini uçtan uca sunuyoruz.
+      </p>
+
+      <div class="detail-cols">
+        <div class="box">
+          <h3>Misyonumuz</h3>
+          <ul class="ul">
+            <li>İhtiyacı doğru analiz edip en uygun çözümü zamanında sunmak.</li>
+            <li>Servis süreçlerinde şeffaf iletişim ve güvenilir iş takibi sağlamak.</li>
+            <li>Kalite, hız ve sürdürülebilir destek ile uzun dönem iş ortaklığı kurmak.</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>Vizyonumuz</h3>
+          <ul class="ul">
+            <li>POS, ESL ve kurumsal donanım alanlarında tercih edilen çözüm ortağı olmak.</li>
+            <li>Yeni teknolojileri sahaya taşıyan, ölçeklenebilir kurulum ve servis modeli geliştirmek.</li>
+            <li>Müşteri memnuniyetini merkeze alıp ürün/hizmet yelpazesini sürekli genişletmek.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="detail-cols">
+        <div class="box">
+          <h3>Nasıl Çalışıyoruz?</h3>
+          <ul class="ul">
+            <li><b>Keşif / Analiz:</b> İhtiyaç, saha koşulları ve iş akışı değerlendirmesi.</li>
+            <li><b>Planlama:</b> Ürün seçimi, adet/konum planı, entegrasyon gereksinimleri.</li>
+            <li><b>Kurulum & Devreye Alma:</b> Testler, kullanıcı yönlendirmesi, stabilizasyon.</li>
+            <li><b>Servis & Bakım:</b> Periyodik kontrol, arıza müdahalesi, yedek parça/sarf takibi.</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>Güçlü Yanlarımız</h3>
+          <ul class="ul">
+            <li>Tek noktadan tedarik + servis (cihazlar, yazıcılar, POS çevre birimleri).</li>
+            <li>Yerinde ve uzaktan destek esnekliği.</li>
+            <li>Uzun dönem bakım planı ve süreklilik odağı.</li>
+            <li>Perakende & horeca süreçlerine uygun sahada pratik çözüm yaklaşımı.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn primary" href="#iletisim" data-nav="iletisim">Teklif / Bilgi Al</a>
+        <a class="btn" href="#hizmetler" data-nav="hizmetler">Hizmetlere geç</a>
       </div>
     </div>
+  </section>
 
-    <div class="service card">
-      <img src="images/oem1.jpg">
-      <div>
-        <h3>OEM Otomasyon Kartları</h3>
-        <p>Röle, kontrol, sensör ve güç kartları temin & tamir.</p>
+  <!-- ===================== HİZMETLER (Liste) ===================== -->
+  <section id="page-hizmetler" class="page" aria-label="Hizmetler">
+    <div class="card" style="padding:22px;">
+      <h2 class="section-title" style="margin-top:0;">Hizmetler</h2>
+      <p class="muted">Her kalemde; tedarik → kurulum → servis → bakım döngüsünü süreç odaklı yönetiriz. Detay için hizmete tıkla.</p>
+
+      <div class="svc-grid" style="margin-top:14px;">
+        <!-- ESL -->
+        <article class="card svc-card" role="button" tabindex="0" data-go="svc-esl" aria-label="ESL detay">
+          <div class="svc-thumb"><img src="images/esl4.jpg" alt="ESL elektronik raf etiketleri"></div>
+          <div>
+            <h3>ESL Elektronik Raf Etiketleri</h3>
+            <p>Keşif, gateway kurulumu, etiket eşleştirme, cloud yönetim ve satış sonrası destek.</p>
+            <div class="tagrow">
+              <span class="tag">Kurulum</span><span class="tag">Cloud</span><span class="tag">Bakım</span><span class="tag">Uzaktan Destek</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- POS -->
+        <article class="card svc-card" role="button" tabindex="0" data-go="svc-pos" aria-label="POS detay">
+          <div class="svc-thumb"><img src="images/pos1.jpg" alt="POS sistemleri"></div>
+          <div>
+            <h3>Otel / Restaurant POS Sistemleri</h3>
+            <p>Kurulum, entegrasyon, cihaz/çevre birimi tedariki ve operasyonel servis.</p>
+            <div class="tagrow">
+              <span class="tag">Kurulum</span><span class="tag">Entegrasyon</span><span class="tag">Servis</span><span class="tag">Sarf Yönetimi</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Printers -->
+        <article class="card svc-card" role="button" tabindex="0" data-go="svc-printer" aria-label="Yazıcı detay">
+          <div class="svc-thumb"><img src="images/printer1.jpg" alt="Yazıcı bakım onarım"></div>
+          <div>
+            <h3>Yazıcı Bakım & Onarım (Epson / TM)</h3>
+            <p>Epson 220B, T88 serisi, TM-U295 ve benzeri fiş/etiket yazıcıları.</p>
+            <div class="tagrow">
+              <span class="tag">Arıza Tespiti</span><span class="tag">Parça</span><span class="tag">Test</span><span class="tag">Periyodik Bakım</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- OEM -->
+        <article class="card svc-card" role="button" tabindex="0" data-go="svc-oem" aria-label="OEM detay">
+          <div class="svc-thumb"><img src="images/oem1.jpg" alt="OEM otomasyon kartları"></div>
+          <div>
+            <h3>OEM Otomasyon Kartları</h3>
+            <p>Röle kartları, kontrol kartları, IO modülleri, güç kartları ve haberleşme modülleri.</p>
+            <div class="tagrow">
+              <span class="tag">Temin</span><span class="tag">Tamir</span><span class="tag">Fonksiyon Test</span><span class="tag">Muadil Bulma</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Devices -->
+        <article class="card svc-card" role="button" tabindex="0" data-go="svc-cihaz" aria-label="Cihaz servisi detay">
+          <div class="svc-thumb"><img src="images/mobile1.jpg" alt="Telefon tablet pc servisi"></div>
+          <div>
+            <h3>Telefon / Tablet / PC Servisi</h3>
+            <p>Kurumsal cihaz tedariki, arıza tespiti, bakım-onarım ve süreç yönetimi.</p>
+            <div class="tagrow">
+              <span class="tag">Onarım</span><span class="tag">Tedarik</span><span class="tag">Kurumsal</span><span class="tag">Hızlı Destek</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="cta-row" style="margin-top:18px;">
+        <a class="btn primary" href="#iletisim" data-nav="iletisim">Teklif / Keşif Talebi</a>
+        <a class="btn" href="https://wa.me/905433650787?text=Merhaba%2C%20FRAG%20TEKNOLOJ%C4%B0%20hizmetleri%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
+           target="_blank" rel="noopener">WhatsApp</a>
       </div>
     </div>
+  </section>
 
-  </div>
-</section>
+  <!-- ===================== HİZMET DETAY: ESL ===================== -->
+  <section id="page-svc-esl" class="page" aria-label="ESL detay">
+    <div class="card detail-hero">
+      <div class="cover" style="background-image:url('images/esl4.jpg');"></div>
+      <div class="content">
+        <span class="badge">🏷️ ESL Detay</span>
+        <h2>ESL Elektronik Raf Etiketleri (Satış • Kurulum • Cloud Yönetim)</h2>
+        <p>Perakende raflarında fiyat güncellemeyi hızlandırır, merkezi kontrol sağlar; kurulumdan uzun dönem servise kadar uçtan uca destek.</p>
 
-<section id="iletisim" class="card contact">
-  <div>
-    <h3>İletişim</h3>
-    <p>Caddebostan İskele Sok. No:14-16B<br>Kadıköy / İstanbul</p>
-    <p>support@fragteknoloji.com<br>+90 543 365 07 87</p>
-  </div>
+        <div class="detail-cols">
+          <div class="box">
+            <h3>Neler Yapıyoruz?</h3>
+            <ul class="ul">
+              <li><b>Keşif & Planlama:</b> Mağaza planı, raf yapısı, etiket tipi/ölçü seçimi, adet ve kapsama analizi.</li>
+              <li><b>Kurulum:</b> Gateway yerleşimi, ağ yapılandırma, etiket eşleştirme, test ve devreye alma.</li>
+              <li><b>Entegrasyon:</b> Ürün/fiyat verisi akışı için ihtiyaç bazlı yapı (mevcut sistemle uyum analizi).</li>
+              <li><b>Cloud Yönetim:</b> Merkezi panel üzerinden yönetim, uzaktan izleme ve destek süreçleri.</li>
+              <li><b>Satış Sonrası:</b> Eğitim, bakım planı, yedek etiket/aksesuar, periyodik kontrol.</li>
+            </ul>
+          </div>
+          <div class="box">
+            <h3>Kimler İçin Uygun?</h3>
+            <ul class="ul">
+              <li>Market / süpermarket / zincir perakende</li>
+              <li>Teknoloji mağazaları, yapı marketler</li>
+              <li>Fiyat değişimi sık olan ürün grupları</li>
+              <li>Merkezi fiyat yönetimi ihtiyacı olan işletmeler</li>
+            </ul>
+          </div>
+        </div>
 
-  <form>
-    <input placeholder="Ad Soyad">
-    <input placeholder="E-posta">
-    <textarea placeholder="Mesajınız"></textarea>
-    <button class="btn primary">Gönder</button>
-  </form>
-</section>
+        <div class="detail-cols">
+          <div class="box">
+            <h3>Operasyonel Faydalar</h3>
+            <ul class="ul">
+              <li>Fiyat değişimini dakikalar içinde raflara yansıtma</li>
+              <li>Raf-kasa tutarlılığını artırma</li>
+              <li>İş gücü ve hata maliyetini azaltma</li>
+              <li>Kampanya yönetimini kolaylaştırma</li>
+            </ul>
+          </div>
+          <div class="box">
+            <h3>Bakım & Destek Modeli</h3>
+            <ul class="ul">
+              <li>Uzaktan izleme ve müdahale</li>
+              <li>Yerinde servis (ihtiyaç halinde)</li>
+              <li>Periyodik bakım ve sistem kontrol raporu</li>
+              <li>Uzun dönem yedek parça/etiket yönetimi</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn" href="#hizmetler" data-nav="hizmetler">← Tüm hizmetler</a>
+          <a class="btn primary" href="#iletisim" data-nav="iletisim">ESL için teklif al</a>
+          <a class="btn" href="https://wa.me/905433650787?text=Merhaba%2C%20ESL%20elektronik%20raf%20etiketi%20i%C3%A7in%20teklif%20almak%20istiyorum."
+             target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HİZMET DETAY: POS ===================== -->
+  <section id="page-svc-pos" class="page" aria-label="POS detay">
+    <div class="card detail-hero">
+      <div class="cover" style="background-image:url('images/pos1.jpg');"></div>
+      <div class="content">
+        <span class="badge">🧾 POS Detay</span>
+        <h2>Otel / Restaurant POS Sistemleri (Kurulum • Entegrasyon • Servis)</h2>
+        <p>Horeca operasyonlarında hızlı satış, stabil çalışma ve kesintisiz servis için POS altyapısını uçtan uca kurar ve yönetiriz.</p>
+
+        <div class="detail-cols">
+          <div class="box">
+            <h3>Kurulum Kapsamı</h3>
+            <ul class="ul">
+              <li><b>Altyapı planı:</b> Kasa/garson noktaları, ağ, yazıcı yerleşimi ve cihaz planlaması.</li>
+              <li><b>Donanım:</b> Dokunmatik POS PC, yazıcı, çekmece, barkod okuyucu, müşteri ekranı vb.</li>
+              <li><b>Devreye alma:</b> Kurulum, test senaryoları, stabilizasyon ve kullanıcı eğitim desteği.</li>
+            </ul>
+          </div>
+          <div class="box">
+            <h3>Entegrasyon & Operasyon</h3>
+            <ul class="ul">
+              <li>Şube bazlı yapılandırma ve yetkilendirme</li>
+              <li>Yazıcı kurguları (mutfak/bar/fis) ve çalışma senaryoları</li>
+              <li>Uzaktan destek ve arıza müdahalesi</li>
+              <li>Sarf & yedek parça yönetimi (yazıcı ruloları, kablolar, parçalar)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="detail-cols">
+          <div class="box">
+            <h3>Servis Hizmetleri</h3>
+            <ul class="ul">
+              <li>Yerinde arıza tespiti ve hızlı müdahale</li>
+              <li>Cihaz değişimi / geçici çözüm planı (operasyon durmasın diye)</li>
+              <li>Periyodik bakım ve sistem sağlığı kontrolü</li>
+              <li>Çevre birimleri arızaları: yazıcı, çekmece, ekran, okuyucu</li>
+            </ul>
+          </div>
+          <div class="box">
+            <h3>Kimler İçin?</h3>
+            <ul class="ul">
+              <li>Restaurant, cafe, bar</li>
+              <li>Otel restoranları, room service</li>
+              <li>Yoğun saatlerde kesintisiz çalışma ihtiyacı olan işletmeler</li>
+              <li>Çok noktada standart POS kurulumu isteyen markalar</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn" href="#hizmetler" data-nav="hizmetler">← Tüm hizmetler</a>
+          <a class="btn primary" href="#iletisim" data-nav="iletisim">POS için teklif al</a>
+          <a class="btn" href="https://wa.me/905433650787?text=Merhaba%2C%20POS%20sistemi%20kurulumu%20i%C3%A7in%20bilgi%20almak%20istiyorum."
+             target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HİZMET DETAY: YAZICI ===================== -->
+  <section id="page-svc-printer" class="page" aria-label="Yazıcı detay">
+    <div class="card detail-hero">
+      <div class="cover" style="background-image:url('images/printer1.jpg');"></div>
+      <div class="content">
+        <span class="badge">🖨️ Yazıcı Detay</span>
+        <h2>Yazıcı Bakım & Onarım (Epson 220B • T88 • TM-U295 vb.)</h2>
+        <p>Fiş/etiket yazıcılarında arıza tespiti, parça değişimi, kalibrasyon ve periyodik bakım ile stabil çalışma sağlar.</p>
+
+        <div class="detail-cols">
+          <div class="box">
+            <h3>Hizmet Kapsamı</h3>
+            <ul class="ul">
+              <li><b>Arıza tespiti:</b> Mekanik ve elektronik kontrol, sensör/termal kafa değerlendirme.</li>
+              <li><b>Onarım:</b> Kart tamiri, motor/dişli, sensör, buton, bağlantı sorunları.</li>
+              <li><b>Parça temini:</b> Uygun parça/muadil seçenekleri ile hızlı süreç.</li>
+              <li><b>Kurulum & Ayar:</b> Sürücü/port ayarları, test baskısı, kesici (cutter) kontrolü.</li>
+            </ul>
+          </div>
+          <div class="box">
+            <h3>Tipik Problemler</h3>
+            <ul class="ul">
+              <li>Kağıt sıkışması, çekmeme / yarım çekme</li>
+              <li>Silük/soluk baskı, çizgili baskı</li>
+              <li>Kesici arızası, sensör hataları</li>
+              <li>Bağlantı sorunları (USB/Serial/LAN), port hataları</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="detail-cols">
+          <div class="box">
+            <h3>Periyodik Bakım Neleri İçerir?</h3>
+            <ul class="ul">
+              <li>Temizlik ve mekanik kontrol</li>
+              <li>Termal kafa kontrolü, baskı kalitesi testi</li>
+              <li>Kesici ve sensör kontrolü</li>
+              <li>Bağlantı/port stabilite kontrolü</li>
+            </ul>
+          </div>
+          <div class="box">
+            <h3>Kimler İçin?</h3>
+            <ul class="ul">
+              <li>Restaurant POS fiş yazıcıları</li>
+              <li>Perakende kasa fiş yazıcıları</li>
+              <li>Depo/etiket operasyonları</li>
+              <li>Yüksek baskı adedi olan işletmeler</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn" href="#hizmetler" data-nav="hizmetler">← Tüm hizmetler</a>
+          <a class="btn primary" href="#iletisim" data-nav="iletisim">Yazıcı servisi iste</a>
+          <a class="btn" href="https://wa.me/905433650787?text=Merhaba%2C%20yaz%C4%B1c%C4%B1%20bak%C4%B1m%2Fonarm%20i%C3%A7in%20destek%20almak%20istiyorum."
+             target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HİZMET DETAY: OEM ===================== -->
+  <section id="page-svc-oem" class="page" aria-label="OEM detay">
+    <div class="card detail-hero">
+      <div class="cover" style="background-image:url('images/oem1.jpg');"></div>
+      <div class="content">
+        <span class="badge">🧩 OEM Detay</span>
+        <h2>OEM Otomasyon Kartları (Temin • Tamir • Fonksiyon Test)</h2>
+        <p>Otomasyon sistemlerinde kullanılan kart ve modüller için tedarik, kart bazlı arıza analizi ve fonksiyon test hizmeti sunarız.</p>
+
+        <div class="detail-cols">
+          <div class="box">
+            <h3>Çalıştığımız Ürün Grupları</h3>
+            <ul class="ul">
+              <li><b>Röle kartları:</b> Çoklu röle modülleri, sürücü devreleri, güç dağıtımı.</li>
+              <li><b>Kontrol kartları (Controller):</b> Kontrol üniteleri, işlemci kartları, PLC çevresi.</li>
+              <li><b>IO modülleri:</b> Dijital/analog giriş-çıkış kartları.</li>
+              <li><b>Güç kartları:</b> Besleme, regülasyon, dönüştürücü devreleri.</li>
+              <li><b>Haberleşme:</b> RS/485, Ethernet, CAN vb. modüller ve arayüzler.</li>
+              <li><b>Sensör/driver bileşenleri:</b> Sürücü kartları, optik okuma, encoder devreleri.</li>
+            </ul>
+          </div>
+          <div class="box">
+            <h3>Süreç Nasıl İşler?</h3>
+            <ul class="ul">
+              <li><b>Ön analiz:</b> Kart modeli, semptom, çalışma koşulları bilgisi.</li>
+              <li><b>Arıza tespiti:</b> Görsel inceleme, ölçüm, komponent kontrolü.</li>
+              <li><b>Onarım:</b> Bileşen değişimi, lehim/iz onarımı, konnektör yenileme.</li>
+              <li><b>Fonksiyon test:</b> Yük altında test, sinyal/iletişim doğrulaması.</li>
+              <li><b>Muadil/tedarik:</b> Onarıma uygun değilse alternatif tedarik opsiyonu.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="detail-cols">
+          <div class="box">
+            <h3>Avantaj</h3>
+            <ul class="ul">
+              <li>Yedek parça/alternatif tedarik desteği</li>
+              <li>Onarım + test ile saha riski azaltma</li>
+              <li>Muadil önerisi ile maliyet optimizasyonu</li>
+              <li>Uzun dönem servis planı</li>
+            </ul>
+          </div>
+          <div class="box">
+            <h3>Kimler İçin?</h3>
+            <ul class="ul">
+              <li>OEM üreticiler / bakım ekipleri</li>
+              <li>Endüstriyel otomasyon kullanan işletmeler</li>
+              <li>Makine üreticileri ve servis firmaları</li>
+              <li>Kritik kartların duruşa neden olduğu hatlar</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn" href="#hizmetler" data-nav="hizmetler">← Tüm hizmetler</a>
+          <a class="btn primary" href="#iletisim" data-nav="iletisim">OEM için teklif al</a>
+          <a class="btn" href="https://wa.me/905433650787?text=Merhaba%2C%20OEM%20otomasyon%20kart%C4%B1%20temin%2Ftamir%20i%C3%A7in%20bilgi%20almak%20istiyorum."
+             target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HİZMET DETAY: CİHAZ ===================== -->
+  <section id="page-svc-cihaz" class="page" aria-label="Cihaz servisi detay">
+    <div class="card detail-hero">
+      <div class="cover" style="background-image:url('images/mobile1.jpg');"></div>
+      <div class="content">
+        <span class="badge">📱 Cihaz Servisi Detay</span>
+        <h2>Telefon / Tablet / PC (Tedarik • Onarım • Servis Yönetimi)</h2>
+        <p>Kurumsal ve bireysel cihazlarda arıza tespiti, bakım-onarım, parça tedariki ve süreç yönetimi.</p>
+
+        <div class="detail-cols">
+          <div class="box">
+            <h3>Onarım & Bakım</h3>
+            <ul class="ul">
+              <li><b>Arıza tespiti:</b> Donanım ve yazılım kaynaklı problemlerin ayrıştırılması.</li>
+              <li><b>Parça değişimi:</b> Ekran, batarya, klavye, disk, RAM gibi bileşenler.</li>
+              <li><b>Performans bakım:</b> Temizlik, termal kontrol, stabilite testleri.</li>
+              <li><b>Kurulum/düzen:</b> Sürücü, temel ayarlar, kullanıcıya teslim öncesi kontroller.</li>
+            </ul>
+          </div>
+          <div class="box">
+            <h3>Kurumsal Tedarik & Standardizasyon</h3>
+            <ul class="ul">
+              <li>İhtiyaç bazlı cihaz önerisi ve satın alma desteği</li>
+              <li>Kurumsal kullanım için model standardizasyonu</li>
+              <li>Çevre birimleri (dock, adaptör, kablo) tedariki</li>
+              <li>Servis süreç takibi ve raporlama yaklaşımı</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="detail-cols">
+          <div class="box">
+            <h3>Sık Talepler</h3>
+            <ul class="ul">
+              <li>Performans düşüşü / ısınma</li>
+              <li>Şarj, batarya, ekran problemleri</li>
+              <li>Disk sorunları ve veri erişimi problemleri</li>
+              <li>Kurumsal cihaz havuzu yönetimi</li>
+            </ul>
+          </div>
+          <div class="box">
+            <h3>Destek Modeli</h3>
+            <ul class="ul">
+              <li>Hızlı arıza değerlendirme</li>
+              <li>Yerinde/uzaktan destek (duruma göre)</li>
+              <li>Parça tedarik ve teslim planı</li>
+              <li>Periyodik bakım önerisi</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn" href="#hizmetler" data-nav="hizmetler">← Tüm hizmetler</a>
+          <a class="btn primary" href="#iletisim" data-nav="iletisim">Servis kaydı aç</a>
+          <a class="btn" href="https://wa.me/905433650787?text=Merhaba%2C%20telefon%2Ftablet%2FPC%20servisi%20i%C3%A7in%20destek%20almak%20istiyorum."
+             target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== İLETİŞİM ===================== -->
+  <section id="page-iletisim" class="page" aria-label="İletişim">
+    <div class="card" style="padding:22px;">
+      <h2 class="section-title" style="margin-top:0;">İletişim</h2>
+      <p class="muted">Talebinizi iletin, en kısa sürede dönüş yapalım.</p>
+
+      <div class="contact-grid" style="margin-top:12px;">
+        <div class="box">
+          <div style="margin:8px 0; color:var(--muted); font-size:14px; line-height:1.55">
+            <b>Adres</b><br>
+            Caddebostan İskele Sok No:14-16B<br>
+            Caddebostan Kadıköy - İstanbul
+          </div>
+          <div style="margin:8px 0; color:var(--muted); font-size:14px;">
+            <b>E-posta</b><br>
+            <a href="mailto:support@fragteknoloji.com">support@fragteknoloji.com</a>
+          </div>
+          <div style="margin:8px 0; color:var(--muted); font-size:14px;">
+            <b>Telefon</b><br>
+            <a href="tel:+905433650787">+90 543-365-0787</a>
+          </div>
+
+          <div class="cta-row" style="margin-top:12px;">
+            <a class="btn" href="https://wa.me/905433650787?text=Merhaba%2C%20FRAG%20TEKNOLOJ%C4%B0%20i%C3%A7in%20teklif%20almak%20istiyorum."
+               target="_blank" rel="noopener">💬 WhatsApp</a>
+            <a class="btn" href="mailto:rbeyhan@fragteknoloji.com?subject=Web%20-%20Teklif%20Talebi">📩 rbeyhan@fragteknoloji.com</a>
+          </div>
+        </div>
+
+        <div class="box">
+          <!-- Formspree kullanacaksan FORM_ID'yi değiştir -->
+          <form action="https://formspree.io/f/FORM_ID_YERINE_BURAYI" method="POST">
+            <div class="field">
+              <label class="muted" for="name">Ad Soyad</label>
+              <input id="name" name="name" type="text" placeholder="Ad Soyad" required>
+            </div>
+
+            <div class="field">
+              <label class="muted" for="email">E-posta</label>
+              <input id="email" name="email" type="email" placeholder="ornek@firma.com" required>
+            </div>
+
+            <div class="field">
+              <label class="muted" for="service">İlgilendiğiniz Hizmet</label>
+              <input id="service" name="service" type="text" placeholder="Örn: ESL / POS / Yazıcı / OEM / Cihaz">
+            </div>
+
+            <div class="field">
+              <label class="muted" for="message">Mesaj</label>
+              <textarea id="message" name="message" placeholder="Kısaca ihtiyacınızı yazın…" required></textarea>
+            </div>
+
+            <input type="hidden" name="_subject" value="FRAG TEKNOLOJİ - Web İletişim Formu">
+            <div class="cta-row">
+              <button class="btn primary" type="submit">📩 Gönder</button>
+              <a class="btn" href="mailto:support@fragteknoloji.com?subject=Web%20-%20Teklif%20Talebi">E-posta ile</a>
+            </div>
+
+            <p class="muted" style="margin-top:10px;font-size:12px;">
+              Form gönderimleri e-posta olarak iletilir. (Spam klasörünü ara sıra kontrol edin.)
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 
 </main>
 
 <footer>
-© 2026 FRAG Teknoloji
+  <div>© <span id="yil"></span> FRAG TEKNOLOJİ. Tüm hakları saklıdır.</div>
+  <div><a href="#anasayfa" data-nav="anasayfa">Ana sayfaya dön ↑</a></div>
 </footer>
+
+<script>
+  // Yıl
+  document.getElementById("yil").textContent = new Date().getFullYear();
+
+  // Sayfa yönetimi (tek sayfa uygulama gibi)
+  const pages = ["anasayfa","hakkimizda","hizmetler","iletisim","svc-esl","svc-pos","svc-printer","svc-oem","svc-cihaz"];
+
+  function showPage(key){
+    // tüm sayfaları kapat
+    pages.forEach(p=>{
+      const el = document.getElementById("page-"+p);
+      if(el) el.classList.remove("active");
+    });
+
+    // aktif sayfayı aç
+    const active = document.getElementById("page-"+key);
+    if(active) active.classList.add("active");
+
+    // menü active
+    document.querySelectorAll('.menu .link').forEach(a=>{
+      a.classList.toggle("active", a.getAttribute("data-nav") === key);
+      // servis detayındayken "Hizmetler" aktif görünsün
+      if(key.startsWith("svc-")){
+        a.classList.toggle("active", a.getAttribute("data-nav") === "hizmetler");
+      }
+    });
+
+    // en üste kaydır
+    window.scrollTo({top:0, behavior:"smooth"});
+  }
+
+  function parseHash(){
+    const raw = (location.hash || "#anasayfa").replace("#","");
+    // güvenlik: tanımsızsa anasayfa
+    const key = pages.includes(raw) ? raw : "anasayfa";
+    showPage(key);
+  }
+
+  // Menü ve iç linkler
+  document.addEventListener("click", (e)=>{
+    const a = e.target.closest("[data-nav]");
+    if(!a) return;
+    const key = a.getAttribute("data-nav");
+    if(!key) return;
+    e.preventDefault();
+    history.pushState(null, "", "#"+key);
+    showPage(key);
+  });
+
+  // Hizmet kartına tıklayınca detaya git
+  document.querySelectorAll("[data-go]").forEach(card=>{
+    card.addEventListener("click", ()=>{
+      const key = card.getAttribute("data-go");
+      history.pushState(null, "", "#"+key);
+      showPage(key);
+    });
+    card.addEventListener("keydown", (ev)=>{
+      if(ev.key === "Enter" || ev.key === " "){
+        ev.preventDefault();
+        const key = card.getAttribute("data-go");
+        history.pushState(null, "", "#"+key);
+        showPage(key);
+      }
+    });
+  });
+
+  // Geri/ileri
+  window.addEventListener("popstate", parseHash);
+
+  // İlk açılış
+  parseHash();
+</script>
 
 </body>
 </html>
